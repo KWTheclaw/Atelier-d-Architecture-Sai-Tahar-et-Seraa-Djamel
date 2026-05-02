@@ -1,104 +1,616 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atelier d'Architecture — Sai Tahar & Seraa Djamel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-<div style="max-width: 380px; margin: 0 auto; font-family: var(--font-sans); padding: 8px;">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <div style="background: #0e1612; border-radius: 20px; overflow: hidden; border: 0.5px solid #2a3d2e;">
+:root {
+  --cream:   #faf7f2;
+  --cream2:  #f3ede3;
+  --sand:    #e8dece;
+  --gold:    #c4923a;
+  --gold2:   #e0aa58;
+  --gold-bg: #fdf6ec;
+  --dark:    #1c1814;
+  --mid:     #8a7560;
+  --light:   #b8a690;
+  --white:   #ffffff;
+  --wa:      #25d366;
+  --sh-sm:   0 2px 10px rgba(100,70,30,.10);
+  --sh-md:   0 6px 24px rgba(100,70,30,.14);
+  --r:       14px;
+}
 
-    <div style="padding: 40px 28px 28px; text-align: center; position: relative;">
-      <div style="display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; margin-bottom: 18px;">
-        <svg viewBox="0 0 56 56" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="28,4 52,48 4,48" fill="none" stroke="#c9a96e" stroke-width="1.5"/>
-          <rect x="20" y="34" width="16" height="14" fill="none" stroke="#c9a96e" stroke-width="1.2"/>
-          <rect x="24" y="34" width="4" height="6" fill="none" stroke="#c9a96e" stroke-width="1"/>
-          <rect x="30" y="34" width="4" height="6" fill="none" stroke="#c9a96e" stroke-width="1"/>
-        </svg>
-      </div>
+html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
+body {
+  background: var(--cream);
+  color: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
 
-      <p style="font-size: 10px; letter-spacing: 3px; color: #c9a96e; margin: 0 0 10px; text-transform: uppercase; font-weight: 400;">Atelier d'Architecture</p>
-      <h1 style="font-size: 30px; font-weight: 400; color: #f0ebe0; margin: 0 0 4px; line-height: 1.15; letter-spacing: -0.3px; font-family: Georgia, serif;">Sai Tahar<br>&amp; Seraa Djamel</h1>
-      <p style="font-size: 9.5px; letter-spacing: 2.5px; color: #7a8f7e; margin: 10px 0 20px; text-transform: uppercase;">Architectes Associés</p>
+/* ═══════════════════════════════
+   PAGE 1 — HERO
+═══════════════════════════════ */
+.page1 {
+  height: 100svh;
+  min-height: 560px;
+  scroll-snap-align: start;
+  background: var(--dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: 40px 28px 72px;
+}
 
-      <div style="display: flex; align-items: center; justify-content: center; gap: 10px;">
-        <span style="font-size: 9px; letter-spacing: 2.5px; color: #c9a96e; text-transform: uppercase;">Architecture</span>
-        <span style="color: #c9a96e; font-size: 8px;">◆</span>
-        <span style="font-size: 9px; letter-spacing: 2.5px; color: #c9a96e; text-transform: uppercase;">Design</span>
-        <span style="color: #c9a96e; font-size: 8px;">◆</span>
-        <span style="font-size: 9px; letter-spacing: 2.5px; color: #c9a96e; text-transform: uppercase;">Planning</span>
-      </div>
+/* warm glow */
+.page1::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(196,146,58,.2) 0%, transparent 65%);
+  top: 50%; left: 50%;
+  transform: translate(-50%,-55%);
+  pointer-events: none;
+}
 
-      <div style="height: 1px; background: linear-gradient(to right, transparent, #2a3d2e 30%, #2a3d2e 70%, transparent); margin: 24px 0 0;"></div>
-    </div>
+/* blueprint grid */
+.p1-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(196,146,58,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,146,58,.07) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
 
-    <div style="padding: 0 20px 24px; display: flex; flex-direction: column; gap: 8px;">
+/* top drip line */
+.p1-drip {
+  position: absolute;
+  width: 1px; height: 140px;
+  background: linear-gradient(var(--gold), transparent);
+  top: 0; left: 50%; transform: translateX(-50%);
+  opacity: .4;
+}
 
-      <a href="tel:0033384280" style="text-decoration: none; display: flex; align-items: center; gap: 14px; background: #141f17; border: 0.5px solid #243029; border-radius: 14px; padding: 14px 16px;">
-        <div style="width: 38px; height: 38px; border-radius: 10px; background: #1d2e22; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63 19.79 19.79 0 011 1.07 2 2 0 013.11 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 8.91A16 16 0 0015.91 17.7l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 18.92z"/>
-          </svg>
-        </div>
-        <div style="flex: 1;">
-          <p style="font-size: 9px; letter-spacing: 2px; color: #7a8f7e; margin: 0 0 2px; text-transform: uppercase;">Téléphone</p>
-          <p style="font-size: 15px; color: #e8e2d5; margin: 0; font-weight: 400;">033 38 42 80</p>
-        </div>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3a5040" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path d="M9 18l6-6-6-6"/></svg>
-      </a>
+/* ── LOGO ── */
+.logo-wrap {
+  position: relative; z-index: 2;
+  margin: 0 auto 24px;
+  animation: fadeDown .8s ease both;
+}
+.logo-wrap svg { display: block; }
 
-      <a href="https://wa.me/213673929103" style="text-decoration: none; display: flex; align-items: center; gap: 14px; background: #141f17; border: 0.5px solid #243029; border-radius: 14px; padding: 14px 16px;">
-        <div style="width: 38px; height: 38px; border-radius: 10px; background: #1a2e1f; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#4CAF50"/>
-            <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="#4CAF50" stroke-width="1.5" fill="none"/>
-          </svg>
-        </div>
-        <div style="flex: 1;">
-          <p style="font-size: 9px; letter-spacing: 2px; color: #7a8f7e; margin: 0 0 2px; text-transform: uppercase;">WhatsApp</p>
-          <p style="font-size: 15px; color: #4CAF50; margin: 0; font-weight: 400;">+213 673 92 91 03</p>
-        </div>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3a5040" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path d="M9 18l6-6-6-6"/></svg>
-      </a>
+/* ── TEXT ── */
+.p1-eyebrow {
+  position: relative; z-index: 2;
+  font-size: .58rem; letter-spacing: .38em; text-transform: uppercase;
+  color: var(--gold2); margin-bottom: 14px;
+  animation: fadeDown .8s .12s ease both;
+}
+.p1-title {
+  position: relative; z-index: 2;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 9vw, 5rem);
+  font-weight: 400; color: var(--cream);
+  line-height: 1.08; letter-spacing: .02em;
+  animation: fadeDown .8s .22s ease both;
+}
+.p1-title em { font-style: italic; color: var(--gold2); display: block; }
 
-      <a href="https://facebook.com/AtelierArchitectureNgaous" style="text-decoration: none; display: flex; align-items: center; gap: 14px; background: #141f17; border: 0.5px solid #243029; border-radius: 14px; padding: 14px 16px;">
-        <div style="width: 38px; height: 38px; border-radius: 10px; background: #18232e; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-          <svg width="17" height="17" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" fill="none" stroke="#4A90D9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div style="flex: 1;">
-          <p style="font-size: 9px; letter-spacing: 2px; color: #7a8f7e; margin: 0 0 2px; text-transform: uppercase;">Facebook</p>
-          <p style="font-size: 15px; color: #4A90D9; margin: 0; font-weight: 400;">AtelierArchitectureNgaous</p>
-        </div>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3a5040" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path d="M9 18l6-6-6-6"/></svg>
-      </a>
+.p1-sub {
+  position: relative; z-index: 2;
+  margin-top: 16px; font-size: .64rem; letter-spacing: .3em; text-transform: uppercase;
+  color: var(--light);
+  animation: fadeDown .8s .34s ease both;
+}
 
-      <a href="https://maps.google.com/?q=Rue+Benlahsen+Seddik,+N'Gaous,+Algeria" style="text-decoration: none; display: flex; align-items: center; gap: 14px; background: #141f17; border: 0.5px solid #243029; border-radius: 14px; padding: 14px 16px;">
-        <div style="width: 38px; height: 38px; border-radius: 10px; background: #1d2e22; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c9a96e" stroke-width="1.8" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-          </svg>
-        </div>
-        <div style="flex: 1;">
-          <p style="font-size: 9px; letter-spacing: 2px; color: #7a8f7e; margin: 0 0 2px; text-transform: uppercase;">Adresse</p>
-          <p style="font-size: 15px; color: #e8e2d5; margin: 0; font-weight: 400;">Rue Benlahsen Seddik, N'Gaous</p>
-        </div>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#3a5040" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><path d="M9 18l6-6-6-6"/></svg>
-      </a>
+/* ornament */
+.p1-orn {
+  position: relative; z-index: 2;
+  margin: 24px auto 0;
+  display: flex; align-items: center; gap: 10px;
+  animation: fadeDown .8s .44s ease both;
+}
+.p1-orn-line { width: 50px; height: 1px; background: rgba(196,146,58,.35); }
+.p1-orn-dot  { width: 4px; height: 4px; background: var(--gold); transform: rotate(45deg); }
 
-    </div>
+/* scroll cue */
+.p1-scroll {
+  position: absolute; z-index: 2;
+  bottom: 24px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  animation: fadeDown .8s .7s ease both;
+}
+.p1-scroll span { font-size: .52rem; letter-spacing: .3em; text-transform: uppercase; color: var(--mid); }
+.p1-tick {
+  width: 1px; height: 30px;
+  background: linear-gradient(var(--gold), transparent);
+  animation: tickBob 2s ease-in-out infinite;
+}
 
-    <div style="margin: 0 20px 20px;">
-      <a href="https://wa.me/213673929103" style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; background: #1e5c30; border: 0.5px solid #2d7a42; border-radius: 14px; padding: 16px;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#ffffff"/>
-          <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="#ffffff" stroke-width="1.5" fill="none"/>
-        </svg>
-        <span style="font-size: 15px; color: #ffffff; font-weight: 500; letter-spacing: 0.3px;">Contactez-nous sur WhatsApp</span>
-      </a>
-    </div>
+@keyframes tickBob { 0%,100%{opacity:.3} 50%{opacity:1} }
+@keyframes fadeDown {
+  from { opacity:0; transform:translateY(-14px); }
+  to   { opacity:1; transform:translateY(0); }
+}
 
-    <div style="padding: 14px 28px; border-top: 0.5px solid #1e2e22; text-align: center;">
-      <p style="font-size: 9px; letter-spacing: 2.5px; color: #3d5040; margin: 0; text-transform: uppercase;">Designed with Precision &nbsp;·&nbsp; N'Gaous, Algeria</p>
-    </div>
+/* ═══════════════════════════════
+   PAGE 2 — ALL INFO
+═══════════════════════════════ */
+.page2 {
+  min-height: 100svh;
+  scroll-snap-align: start;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  /* footer gets pushed to bottom */
+}
 
+/* ── NAMES BAND ── */
+.names-band {
+  background: var(--gold);
+  padding: 18px 24px;
+  display: flex; flex-direction: column; align-items: center; text-align: center; gap: 3px;
+  flex-shrink: 0;
+}
+.names-band h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.2rem, 4.5vw, 1.7rem);
+  font-weight: 700; color: var(--white); letter-spacing: .04em;
+}
+.names-band p {
+  font-size: .58rem; letter-spacing: .24em; text-transform: uppercase;
+  color: rgba(255,255,255,.75);
+}
+
+/* ── MAIN CONTENT AREA ── */
+.p2-body {
+  flex: 1;
+  padding: 24px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* section label */
+.stag {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+}
+.stag-text { font-size: .56rem; letter-spacing: .28em; text-transform: uppercase; color: var(--gold); white-space: nowrap; }
+.stag-line  { flex: 1; height: 1px; background: var(--sand); }
+
+/* ── CONTACT TILES ── */
+.tiles { display: flex; flex-direction: column; gap: 9px; }
+
+.tile {
+  display: flex; align-items: center; gap: 13px;
+  background: var(--white);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  text-decoration: none; color: var(--dark);
+  box-shadow: var(--sh-sm);
+  border: 1.5px solid transparent;
+  transition: all .22s ease;
+  position: relative; overflow: hidden;
+}
+.tile::before {
+  content: '';
+  position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--gold); border-radius: 4px 0 0 4px;
+  transform: scaleY(0); transition: transform .22s ease;
+}
+.tile:hover { border-color: var(--sand); box-shadow: var(--sh-md); transform: translateX(3px); }
+.tile:hover::before { transform: scaleY(1); }
+
+.tile.tile-wa {
+  background: linear-gradient(135deg, #2ecc71 0%, #1aad50 100%);
+  color: var(--white); border-color: transparent;
+  box-shadow: 0 6px 22px rgba(37,211,102,.22);
+}
+.tile.tile-wa:hover {
+  transform: translateX(3px) translateY(-2px);
+  box-shadow: 0 12px 32px rgba(37,211,102,.38);
+}
+.tile.tile-wa::before { background: rgba(255,255,255,.4); }
+
+.tile-icon {
+  width: 40px; height: 40px; border-radius: 10px;
+  background: var(--gold-bg);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.tile.tile-wa .tile-icon { background: rgba(255,255,255,.18); }
+.tile-icon svg { width: 20px; height: 20px; }
+
+.tile-body { flex: 1; min-width: 0; }
+.tile-label {
+  display: block; font-size: .54rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--mid); margin-bottom: 1px;
+}
+.tile.tile-wa .tile-label { color: rgba(255,255,255,.7); }
+.tile-value { font-size: .9rem; font-weight: 500; color: var(--dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tile.tile-wa .tile-value { color: var(--white); font-size: .95rem; }
+
+.tile-arrow { color: var(--light); font-size: 1rem; transition: transform .18s; flex-shrink: 0; }
+.tile:hover .tile-arrow { transform: translateX(3px); color: var(--gold); }
+.tile.tile-wa .tile-arrow { color: rgba(255,255,255,.55); }
+.tile.tile-wa:hover .tile-arrow { color: var(--white); }
+
+/* ── MAP ROW ── */
+.map-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+}
+
+.map-tap {
+  display: flex; flex-direction: column;
+  text-decoration: none;
+  border-radius: var(--r); overflow: hidden;
+  box-shadow: var(--sh-sm); border: 1.5px solid var(--sand);
+  transition: transform .25s, box-shadow .25s;
+  background: var(--white);
+}
+.map-tap:hover { transform: translateY(-2px); box-shadow: var(--sh-md); }
+
+.map-visual {
+  flex: 1; min-height: 80px;
+  background: #ede7dc;
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.map-visual::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(transparent 46%, rgba(196,146,58,.14) 46%, rgba(196,146,58,.14) 54%, transparent 54%),
+    linear-gradient(90deg, transparent 30%, rgba(196,146,58,.14) 30%, rgba(196,146,58,.14) 36%, transparent 36%),
+    linear-gradient(90deg, transparent 62%, rgba(196,146,58,.14) 62%, rgba(196,146,58,.14) 68%, transparent 68%);
+}
+.map-visual::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(196,146,58,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(196,146,58,.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+.map-pin {
+  position: relative; z-index: 2;
+  width: 34px; height: 34px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(196,146,58,.45);
+  animation: pinFloat 2.5s ease-in-out infinite;
+}
+.map-pin svg { transform: rotate(45deg); width: 17px; height: 17px; fill: white; }
+@keyframes pinFloat { 0%,100%{transform:rotate(-45deg) translateY(0)} 50%{transform:rotate(-45deg) translateY(-5px)} }
+
+.map-footer-row {
+  padding: 9px 12px;
+  border-top: 1px solid var(--sand);
+  display: flex; flex-direction: column; gap: 1px;
+}
+.map-footer-row span:first-child { font-size: .7rem; font-weight: 500; color: var(--dark); }
+.map-footer-row span:last-child  { font-size: .6rem; color: var(--gold); }
+
+/* Address block next to map */
+.addr-block {
+  background: var(--white);
+  border-radius: var(--r);
+  padding: 16px;
+  box-shadow: var(--sh-sm);
+  border: 1.5px solid var(--sand);
+  display: flex; flex-direction: column; justify-content: center; gap: 10px;
+}
+.addr-icon-wrap {
+  width: 36px; height: 36px; border-radius: 9px; background: var(--gold-bg);
+  display: flex; align-items: center; justify-content: center;
+}
+.addr-icon-wrap svg { width: 18px; height: 18px; fill: var(--gold); }
+.addr-block strong { font-size: .82rem; font-weight: 500; color: var(--dark); display: block; line-height: 1.3; }
+.addr-block span   { font-size: .72rem; color: var(--mid); display: block; }
+
+/* ── BIG WA BUTTON ── */
+.btn-wa-big {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  background: var(--wa); color: white; text-decoration: none;
+  padding: 15px 24px; border-radius: 50px;
+  font-size: .78rem; font-weight: 500; letter-spacing: .06em;
+  box-shadow: 0 6px 22px rgba(37,211,102,.32);
+  transition: all .28s ease;
+  position: relative; overflow: hidden;
+}
+.btn-wa-big::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,.12);
+  transform: translateX(-100%);
+  transition: transform .35s ease;
+}
+.btn-wa-big:hover::before { transform: translateX(0); }
+.btn-wa-big:hover { transform: translateY(-2px); box-shadow: 0 12px 36px rgba(37,211,102,.46); }
+.btn-wa-big svg { width: 20px; height: 20px; fill: white; flex-shrink: 0; }
+
+/* ── FOOTER ── */
+.p2-footer {
+  background: var(--dark);
+  padding: 20px 24px;
+  text-align: center;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; gap: 16px;
+}
+.pf-logo svg { display: block; }
+.pf-text { text-align: left; }
+.pf-name {
+  font-family: 'Playfair Display', serif;
+  font-size: .8rem; color: var(--gold); letter-spacing: .08em;
+  display: block;
+}
+.pf-tag {
+  font-size: .54rem; letter-spacing: .2em; text-transform: uppercase;
+  color: rgba(255,255,255,.28); display: block; margin-top: 3px;
+}
+
+/* ── STICKY FAB ── */
+.fab {
+  position: fixed; bottom: 20px; right: 18px; z-index: 999;
+  display: flex; align-items: center;
+  text-decoration: none;
+  animation: fabIn 1s .8s ease both;
+}
+.fab-label {
+  background: var(--dark); color: white;
+  font-size: .62rem; letter-spacing: .07em;
+  padding: 9px 16px 9px 18px;
+  border-radius: 50px 0 0 50px;
+  white-space: nowrap; box-shadow: var(--sh-md);
+  opacity: 0; transform: translateX(8px);
+  transition: opacity .28s, transform .28s;
+  pointer-events: none;
+}
+.fab:hover .fab-label { opacity: 1; transform: translateX(0); }
+.fab-btn {
+  width: 54px; height: 54px; border-radius: 50%;
+  background: var(--wa);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 5px 24px rgba(37,211,102,.42);
+  transition: transform .28s, box-shadow .28s;
+  position: relative;
+}
+.fab-btn::before {
+  content: '';
+  position: absolute; inset: -5px; border-radius: 50%;
+  border: 2px solid var(--wa); opacity: 0;
+  animation: fabPulse 2.2s ease-out infinite;
+}
+@keyframes fabPulse { 0%{transform:scale(1);opacity:.7} 100%{transform:scale(1.6);opacity:0} }
+.fab:hover .fab-btn { transform: scale(1.1); box-shadow: 0 9px 32px rgba(37,211,102,.58); }
+.fab-btn svg { width: 26px; height: 26px; fill: white; }
+@keyframes fabIn {
+  from { opacity:0; transform:scale(.4) rotate(-20deg); }
+  to   { opacity:1; transform:scale(1)  rotate(0); }
+}
+
+/* WA icon path shared */
+.wa-path { d: path("M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"); }
+
+@media (min-width: 440px) {
+  .p2-body { padding: 26px 24px 22px; gap: 18px; }
+  .tile { padding: 15px 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 — HERO
+══════════════════════════════════════════ -->
+<section class="page1">
+  <div class="p1-grid"></div>
+  <div class="p1-drip"></div>
+
+  <!-- SVG Architectural Logo -->
+  <div class="logo-wrap">
+    <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg" width="108" height="108">
+      <!-- Outer frame -->
+      <rect x="4" y="4" width="102" height="102" stroke="#c4923a" stroke-width="1"/>
+      <rect x="10" y="10" width="90" height="90" stroke="#c4923a" stroke-width="0.35" opacity="0.35"/>
+      <!-- Corner brackets -->
+      <polyline points="4,18 4,4 18,4"      stroke="#e0aa58" stroke-width="2.2" stroke-linecap="square"/>
+      <polyline points="92,4 106,4 106,18"  stroke="#e0aa58" stroke-width="2.2" stroke-linecap="square"/>
+      <polyline points="4,92 4,106 18,106"  stroke="#e0aa58" stroke-width="2.2" stroke-linecap="square"/>
+      <polyline points="106,92 106,106 92,106" stroke="#e0aa58" stroke-width="2.2" stroke-linecap="square"/>
+      <!-- Pediment triangle -->
+      <polygon points="55,22 88,70 22,70" stroke="#c4923a" stroke-width="1.6" fill="none"/>
+      <!-- Entablature -->
+      <line x1="19" y1="73.5" x2="91" y2="73.5" stroke="#c4923a" stroke-width="1.6"/>
+      <!-- Three columns -->
+      <line x1="36" y1="73.5" x2="36" y2="88" stroke="#c4923a" stroke-width="1.3"/>
+      <line x1="55" y1="73.5" x2="55" y2="88" stroke="#c4923a" stroke-width="1.3"/>
+      <line x1="74" y1="73.5" x2="74" y2="88" stroke="#c4923a" stroke-width="1.3"/>
+      <!-- Stylobate -->
+      <line x1="22" y1="88" x2="88" y2="88" stroke="#c4923a" stroke-width="1.6"/>
+      <!-- Apex & plumb -->
+      <circle cx="55" cy="22" r="2.2" fill="#e0aa58"/>
+      <line x1="55" y1="24" x2="55" y2="70" stroke="#c4923a" stroke-width="0.5" stroke-dasharray="2 3" opacity="0.45"/>
+    </svg>
   </div>
+
+  <p class="p1-eyebrow">N'Gaous · Batna · Algérie</p>
+  <h1 class="p1-title">Atelier d'Architecture<br><em>Sai Tahar et Seraa Djamel</em></h1>
+  <p class="p1-sub">Architecture &nbsp;·&nbsp; Design &nbsp;·&nbsp; Planning</p>
+
+  <div class="p1-orn">
+    <div class="p1-orn-line"></div>
+    <div class="p1-orn-dot"></div>
+    <div class="p1-orn-line"></div>
+  </div>
+
+  <div class="p1-scroll">
+    <div class="p1-tick"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 — ALL INFO
+══════════════════════════════════════════ -->
+<section class="page2" id="contact">
+
+  <!-- Names band -->
+  <div class="names-band">
+    <h2>Sai Tahar &amp; Seraa Djamel</h2>
+    <p>Architectes Diplômés d'État</p>
+  </div>
+
+  <!-- Main content -->
+  <div class="p2-body">
+
+    <!-- Section label -->
+    <div class="stag">
+      <span class="stag-text">Nous contacter</span>
+      <div class="stag-line"></div>
+    </div>
+
+    <!-- Tiles -->
+    <div class="tiles">
+
+      <!-- WhatsApp -->
+      <a href="https://wa.me/213673929103" target="_blank" rel="noopener" class="tile tile-wa">
+        <div class="tile-icon">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" fill="white"/></svg>
+        </div>
+        <div class="tile-body">
+          <span class="tile-label">WhatsApp</span>
+          <span class="tile-value">+213 673 929 103</span>
+        </div>
+        <span class="tile-arrow">→</span>
+      </a>
+
+      <!-- Phone -->
+      <a href="tel:033384280" class="tile">
+        <div class="tile-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#c4923a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.18 6.18l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+        </div>
+        <div class="tile-body">
+          <span class="tile-label">Téléphone</span>
+          <span class="tile-value">033 38 42 80</span>
+        </div>
+        <span class="tile-arrow">→</span>
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/AtelierArchitectureNgaous/" target="_blank" rel="noopener" class="tile">
+        <div class="tile-icon">
+          <svg viewBox="0 0 24 24" fill="#c4923a">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </div>
+        <div class="tile-body">
+          <span class="tile-label">Facebook</span>
+          <span class="tile-value">Atelier Architecture N'Gaous</span>
+        </div>
+        <span class="tile-arrow">→</span>
+      </a>
+
+    </div>
+
+    <!-- Map + Address row -->
+    <div class="map-row">
+
+      <a class="map-tap"
+         href="https://www.bing.com/maps?where1=Rue%20Benlahsen%20Seddik%2C%20N%27Gaous%2C%20Algeria"
+         target="_blank" rel="noopener" aria-label="Ouvrir dans Bing Maps">
+        <div class="map-visual">
+          <div class="map-pin">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          </div>
+        </div>
+        <div class="map-footer-row">
+          <span>Voir la carte</span>
+          <span>Bing Maps →</span>
+        </div>
+      </a>
+
+      <div class="addr-block">
+        <div class="addr-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        </div>
+        <div>
+          <strong>Rue Benlahsen Seddik</strong>
+          <span>N'Gaous, Batna</span>
+          <span>Algérie</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Big WhatsApp CTA -->
+    <a href="https://wa.me/213673929103" target="_blank" rel="noopener" class="btn-wa-big">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      Contacter sur WhatsApp
+    </a>
+
+  </div><!-- /p2-body -->
+
+  <!-- Footer -->
+  <footer class="p2-footer">
+    <div class="pf-logo">
+      <svg viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg" width="44" height="44">
+        <rect x="4" y="4" width="102" height="102" stroke="#c4923a" stroke-width="1"/>
+        <polyline points="4,14 4,4 14,4"      stroke="#e0aa58" stroke-width="2" stroke-linecap="square"/>
+        <polyline points="96,4 106,4 106,14"  stroke="#e0aa58" stroke-width="2" stroke-linecap="square"/>
+        <polyline points="4,96 4,106 14,106"  stroke="#e0aa58" stroke-width="2" stroke-linecap="square"/>
+        <polyline points="106,96 106,106 96,106" stroke="#e0aa58" stroke-width="2" stroke-linecap="square"/>
+        <polygon points="55,22 88,70 22,70" stroke="#c4923a" stroke-width="1.5" fill="none"/>
+        <line x1="19" y1="73.5" x2="91" y2="73.5" stroke="#c4923a" stroke-width="1.5"/>
+        <line x1="36" y1="73.5" x2="36" y2="88" stroke="#c4923a" stroke-width="1.2"/>
+        <line x1="55" y1="73.5" x2="55" y2="88" stroke="#c4923a" stroke-width="1.2"/>
+        <line x1="74" y1="73.5" x2="74" y2="88" stroke="#c4923a" stroke-width="1.2"/>
+        <line x1="22" y1="88" x2="88" y2="88" stroke="#c4923a" stroke-width="1.5"/>
+        <circle cx="55" cy="22" r="2" fill="#e0aa58"/>
+      </svg>
+    </div>
+    <div class="pf-text">
+      <span class="pf-name">Atelier d'Architecture</span>
+      <span class="pf-tag">Conçu avec précision · N'Gaous, Algérie</span>
+    </div>
+  </footer>
+
+</section>
+
+
+<!-- STICKY FAB -->
+<a href="https://wa.me/213673929103" target="_blank" rel="noopener" class="fab" aria-label="WhatsApp">
+  <span class="fab-label">WhatsApp</span>
+  <div class="fab-btn">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" fill="white"/></svg>
+  </div>
+</a>
+
+</body>
+</html>
 
 </div>
